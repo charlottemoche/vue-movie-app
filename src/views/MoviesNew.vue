@@ -1,7 +1,7 @@
 <template>
   <div class="movies-new">
     <form v-on:submit.prevent="createMovie()">
-      <h1>New movie</h1>
+      <h1>New Movie</h1>
       <ul>
         <li class="text-danger" v-for="error in errors" v-bind:key="error">
           {{ error }}
@@ -31,6 +31,7 @@
         <label>Image:</label>
         <input type="text" class="form-control" v-model="image" />
       </div>
+      <br />
       <input type="submit" class="btn btn-primary" value="Create" />
     </form>
   </div>

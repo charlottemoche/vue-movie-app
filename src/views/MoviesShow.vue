@@ -1,13 +1,13 @@
 <template>
   <div class="movies-show">
-    <h1>Title: {{ movie.title }}</h1>
+    <img :src="movie.image" alt="" />
+    <br />
+    <br />
     <router-link :to="`/movies/${movie.id}/edit`">
       <button>Edit</button>
     </router-link>
     <button v-on:click="destroyMovie()">Delete</button>
-    <br />
-    <br />
-    <img :src="movie.image" alt="" />
+    <p>Title: {{ movie.title }}</p>
     <p>Year: {{ movie.year }}</p>
     <p>Director: {{ movie.director }}</p>
     <p>Plot: {{ movie.plot }}</p>
