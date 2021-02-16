@@ -1,5 +1,3 @@
-
-
 <template>
   <div class="login">
     <form v-on:submit.prevent="submit()">
@@ -30,7 +28,7 @@ export default {
     return {
       email: "",
       password: "",
-      errors: []
+      errors: [],
     };
   },
   methods: {
