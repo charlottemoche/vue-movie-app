@@ -9,23 +9,23 @@
         </li>
       </ul>
       <div class="form-group">
-        <label>Title: </label>
+        <label>Title:</label>
         <input type="text" class="form-control" v-model="movie.title" />
       </div>
       <div class="form-group">
-        <label>Year: </label>
+        <label>Year:</label>
         <input type="text" class="form-control" v-model="movie.year" />
       </div>
       <div class="form-group">
-        <label>Director: </label>
+        <label>Director:</label>
         <input type="text" class="form-control" v-model="movie.director" />
       </div>
       <div class="form-group">
-        <label>Plot: </label>
+        <label>Plot:</label>
         <input type="text" class="form-control" v-model="movie.plot" />
       </div>
       <div class="form-group">
-        <label>English: </label>
+        <label>English:</label>
         <input type="text" class="form-control" v-model="movie.english" />
       </div>
       <input type="submit" class="btn btn-primary" value="Update" />

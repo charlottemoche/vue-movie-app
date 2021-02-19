@@ -2,6 +2,7 @@
   <div class="movies-new">
     <form v-on:submit.prevent="createMovie()">
       <h1>New Movie</h1>
+      <p class="red-text" v-if="!$parent.isLoggedIn()">You must log in to add a new movie!</p>
       <ul>
         <li class="text-danger" v-for="error in errors" v-bind:key="error">
           {{ error }}
@@ -11,22 +12,29 @@
         <label>Title:</label>
         <input type="text" class="form-control" v-model="title" />
       </div>
+      <br />
       <div class="form-group">
         <label>Year:</label>
         <input type="text" class="form-control" v-model="year" />
       </div>
+      <br />
       <div class="form-group">
         <label>Plot:</label>
         <input type="text" class="form-control" v-model="plot" />
+        <br />
+        <small v-bind:class="{ 'red-text': plot.length > 100 }">{{ 100 - plot.length }} characters left</small>
+        <small v-if="plot.length < 0" class="red-text"></small>
       </div>
       <div class="form-group">
         <label>Director:</label>
         <input type="text" class="form-control" v-model="director" />
       </div>
+      <br />
       <div class="form-group">
         <label>English:</label>
         <input type="text" class="form-control" v-model="english" />
       </div>
+      <br />
       <div class="form-group">
         <label>Image:</label>
         <input type="text" class="form-control" v-model="image" />
@@ -36,6 +44,11 @@
     </form>
   </div>
 </template>
+<style scoped>
+.red-text {
+  color: red;
+}
+</style>
 
 <script>
 import axios from "axios";
