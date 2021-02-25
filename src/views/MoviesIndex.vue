@@ -1,6 +1,5 @@
 <template>
   <div class="movies-index">
-    <myComponent @mouseover.native="hover = true" @mouseleave.native="hover = false" />
     <h1>Movies</h1>
     <div>
       Search:
@@ -21,7 +20,7 @@
       <div v-for="movie in orderBy(filterBy(movies, filter), sortAttribute)" v-bind:key="movie.id">
         <router-link :to="`/movies/${movie.id}`">
           <span>
-            <img :src="movie.image" alt="" class="colortobw" />
+            <img :src="movie.image" alt="" />
           </span>
         </router-link>
         <p>Title: {{ movie.title }}</p>
@@ -53,7 +52,6 @@ export default {
       movies: [],
       filter: "",
       sortAttribute: "",
-      hover: false,
     };
   },
   created: function() {
