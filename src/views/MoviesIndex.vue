@@ -1,36 +1,34 @@
 <template>
   <div class="movies-index">
     <h1>Movies</h1>
+    Search:
+    <input type="text" v-model="filter" list="titles" />
+    <datalist id="titles">
+      <option v-for="movie in movies" v-bind:key="movie.title">{{ movie.title }}</option>
+    </datalist>
     <div>
-      Search:
-      <input type="text" v-model="filter" list="titles" />
-      <datalist id="titles">
-        <option v-for="movie in movies" v-bind:key="movie.title">{{ movie.title }}</option>
-      </datalist>
-      <div>
-        <button v-on:click="sortAttribute = 'title'">
-          Sort alphabetically
-        </button>
-        <button v-on:click="sortAttribute = 'year'">
-          Sort by year
-        </button>
-        <br />
-      </div>
+      <button v-on:click="sortAttribute = 'title'">
+        Sort alphabetically
+      </button>
+      <button v-on:click="sortAttribute = 'year'">
+        Sort by year
+      </button>
       <br />
-      <div v-for="movie in orderBy(filterBy(movies, filter), sortAttribute)" v-bind:key="movie.id">
-        <router-link :to="`/movies/${movie.id}`">
-          <span>
-            <img :src="movie.image" alt="" />
-          </span>
-        </router-link>
-        <p>Title: {{ movie.title }}</p>
-        <p>Year: {{ movie.year }}</p>
-        <p>Director: {{ movie.director }}</p>
-        <p>Plot: {{ movie.plot }}</p>
-        <p>English: {{ movie.english }}</p>
-        <br />
-        <router-link :to="`/movies/${movie.id}`"></router-link>
-      </div>
+    </div>
+    <br />
+    <div v-for="movie in orderBy(filterBy(movies, filter), sortAttribute)" v-bind:key="movie.id">
+      <router-link :to="`/movies/${movie.id}`">
+        <span>
+          <img :src="movie.image" alt="" />
+        </span>
+      </router-link>
+      <p>Title: {{ movie.title }}</p>
+      <p>Year: {{ movie.year }}</p>
+      <p>Director: {{ movie.director }}</p>
+      <p>Plot: {{ movie.plot }}</p>
+      <p>English: {{ movie.english }}</p>
+      <br />
+      <router-link :to="`/movies/${movie.id}`"></router-link>
     </div>
   </div>
 </template>

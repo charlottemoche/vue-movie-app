@@ -7,14 +7,14 @@
           {{ error }}
         </li>
       </ul>
-      <div class="form-group">
-        <label>Email:</label>
-        <input type="email" class="form-control" v-model="email" />
-      </div>
-      <div class="form-group">
-        <label>Password:</label>
-        <input type="password" class="form-control" v-model="password" />
-      </div>
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" v-model="email" />
+      <br />
+      <br />
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" v-model="password" />
+      <br />
+      <br />
       <input type="submit" class="btn btn-primary" value="Submit" />
     </form>
   </div>

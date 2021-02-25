@@ -7,23 +7,29 @@
           {{ error }}
         </li>
       </ul>
-      <div class="form-group">
-        <label>Name:</label>
-        <input type="text" class="form-control" v-model="name" />
-      </div>
-      <div class="form-group">
-        <label>Email:</label>
-        <input type="email" class="form-control" v-model="email" />
-      </div>
-      <div class="form-group">
-        <label>Password:</label>
-        <input type="password" class="form-control" v-model="password" />
-      </div>
-      <div class="form-group">
-        <label>Password confirmation:</label>
-        <input type="password" class="form-control" v-model="passwordConfirmation" />
-      </div>
-      <input type="submit" class="btn btn-primary" value="Submit" />
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" value="" v-model="name" />
+      <br />
+      <br />
+      <label for="email">Email:</label>
+      <input type="text" id="email" name="email" value="" v-model="email" />
+      <br />
+      <br />
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" value="" v-model="password" />
+      <br />
+      <br />
+      <label for="password-confirmation">Password confirmation:</label>
+      <input
+        type="password"
+        id="password-confirmation"
+        name="password-confirmation"
+        value=""
+        v-model="passwordConfirmation"
+      />
+      <br />
+      <br />
+      <input type="submit" value="Submit" />
     </form>
   </div>
 </template>

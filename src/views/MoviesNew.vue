@@ -1,46 +1,37 @@
 <template>
   <div class="movies-new">
+    <h1>New Movie</h1>
+    <p class="red-text" v-if="!$parent.isLoggedIn()">You must log in to add a new movie!</p>
+    <ul>
+      <li class="text-danger" v-for="error in errors" v-bind:key="error">
+        {{ error }}
+      </li>
+    </ul>
     <form v-on:submit.prevent="createMovie()">
-      <h1>New Movie</h1>
-      <p class="red-text" v-if="!$parent.isLoggedIn()">You must log in to add a new movie!</p>
-      <ul>
-        <li class="text-danger" v-for="error in errors" v-bind:key="error">
-          {{ error }}
-        </li>
-      </ul>
-      <div class="form-group">
-        <label>Title:</label>
-        <input type="text" class="form-control" v-model="title" />
-      </div>
+      <label for="title">Title:</label>
+      <input type="text" id="title" name="title" value="" v-model="title" />
       <br />
-      <div class="form-group">
-        <label>Year:</label>
-        <input type="text" class="form-control" v-model="year" />
-      </div>
       <br />
-      <div class="form-group">
-        <label>Plot:</label>
-        <input type="text" class="form-control" v-model="plot" />
-        <br />
-        <small v-bind:class="{ 'red-text': plot.length > 100 }">{{ 100 - plot.length }} characters left</small>
-        <small v-if="plot.length < 0" class="red-text"></small>
-      </div>
-      <div class="form-group">
-        <label>Director:</label>
-        <input type="text" class="form-control" v-model="director" />
-      </div>
+      <label for="year">Year:</label>
+      <input type="text" id="year" name="year" value="" v-model="year" />
       <br />
-      <div class="form-group">
-        <label>English:</label>
-        <input type="text" class="form-control" v-model="english" />
-      </div>
       <br />
-      <div class="form-group">
-        <label>Image:</label>
-        <input type="text" class="form-control" v-model="image" />
-      </div>
+      <label for="plot">Plot:</label>
+      <input type="text" id="plot" name="plot" value="" v-model="plot" />
       <br />
-      <input type="submit" class="btn btn-primary" value="Create" />
+      <small v-bind:class="{ 'red-text': plot.length > 100 }">{{ 100 - plot.length }} characters left</small>
+      <small v-if="plot.length < 0" class="red-text"></small>
+      <br />
+      <br />
+      <label for="year">Director:</label>
+      <input type="text" id="director" name="director" value="" v-model="director" />
+      <br />
+      <br />
+      <label for="english">English:</label>
+      <input type="text" id="english" name="english" value="" v-model="english" />
+      <br />
+      <br />
+      <input type="submit" value="Submit" />
     </form>
   </div>
 </template>
