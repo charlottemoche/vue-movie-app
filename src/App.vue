@@ -1,22 +1,30 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link>
-      |
-      <span v-if="isLoggedIn()">
-        <router-link to="/logout">Logout</router-link>
-      </span>
-      <span v-else>
-        <router-link to="/signup">Signup</router-link>
-        |
-        <router-link to="/login">Login</router-link>
-      </span>
-      |
-      <router-link to="/movies">Movies</router-link>
-      |
-      <router-link to="/movies/new">New Movie</router-link>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="/">Home</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarNavAltMarkup"
+        aria-controls="navbarNavAltMarkup"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <router-link class="nav-link" to="/movies">Movies</router-link>
+          <router-link class="nav-link" v-if="isLoggedIn()" to="/logout">Logout</router-link>
+          <router-link class="nav-link" v-if="!isLoggedIn()" to="/signup">Signup</router-link>
+          <router-link class="nav-link" v-if="!isLoggedIn()" to="/login">Login</router-link>
+        </div>
+      </div>
+    </nav>
+    <div class="container">
+      <router-view />
     </div>
-    <router-view />
   </div>
 </template>
 
@@ -24,25 +32,14 @@
 img {
   width: 250px;
 }
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+.center {
   text-align: center;
-  color: #2c3e50;
 }
-
-#nav {
-  padding: 30px;
-}
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
+.container {
+  padding-top: 50px;
+  padding-right: 30px;
+  padding-bottom: 50px;
+  padding-left: 80px;
 }
 </style>
 

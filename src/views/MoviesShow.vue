@@ -1,17 +1,19 @@
 <template>
   <div class="movies-show">
-    <img :src="movie.image" alt="" />
-    <br />
-    <br />
-    <router-link :to="`/movies/${movie.id}/edit`">
-      <button>Edit</button>
-    </router-link>
-    <button v-on:click="destroyMovie()">Delete</button>
-    <p>Title: {{ movie.title }}</p>
-    <p>Year: {{ movie.year }}</p>
-    <p>Director: {{ movie.director }}</p>
-    <p>Plot: {{ movie.plot }}</p>
-    <p>English: {{ movie.english }}</p>
+    <div class="center">
+      <img :src="movie.image" alt="" />
+      <br />
+      <br />
+      <router-link :to="`/movies/${movie.id}/edit`">
+        <button>Edit</button>
+      </router-link>
+      <button v-on:click="destroyMovie()">Delete</button>
+      <p>Title: {{ movie.title }}</p>
+      <p>Year: {{ movie.year }}</p>
+      <p>Director: {{ movie.director }}</p>
+      <p>Plot: {{ movie.plot }}</p>
+      <p>English: {{ movie.english }}</p>
+    </div>
   </div>
 </template>
 
