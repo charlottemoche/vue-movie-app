@@ -16,6 +16,7 @@
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
           <router-link class="nav-link" to="/movies">Movies</router-link>
+          <router-link class="nav-link" to="/movies/new">New Movie</router-link>
           <router-link class="nav-link" v-if="isLoggedIn()" to="/logout">Logout</router-link>
           <router-link class="nav-link" v-if="!isLoggedIn()" to="/signup">Signup</router-link>
           <router-link class="nav-link" v-if="!isLoggedIn()" to="/login">Login</router-link>
