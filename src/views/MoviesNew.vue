@@ -23,7 +23,7 @@
       <small v-if="plot.length < 0" class="red-text"></small>
       <br />
       <br />
-      <label for="year">Director:</label>
+      <label for="director">Director:</label>
       <input type="text" id="director" name="director" value="" v-model="director" />
       <br />
       <br />
